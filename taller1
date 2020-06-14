@@ -1,0 +1,144 @@
+<?php
+
+// Realizado por Yurany Zuluaga Vargas CC 1017210847 ACDIVOCA G1
+//Ejercicio N1
+// Hacer un programa en PHP que permita mostrar en pantalla la suma, resta, multiplication y división de dos números enteros
+//almacenados en 2 variables diferentes
+
+$numero1=9;
+$numero2=5;
+$costoTotal=2;
+
+$suma=$numero1+$numero2;
+echo("la suma de: (".$numero1.") + (".$numero2.") = (".$suma.")");
+echo("<br>");
+
+$resta=$numero1-$numero2;
+echo("la resta de: (".$numero1.") - (".$numero2.") = (".$resta.")");
+echo("<br>");
+
+$multiplicacion=$numero1*$numero2;
+echo("la multiplicacion de: (".$numero1.") x (".$numero2.") = (".$multiplicacion.")");
+echo("<br>");
+
+$division=$numero1/$numero2;
+echo("la division de: (".$numero1.") / (".$numero2.") = (".$division.")");
+echo("<br>");
+
+//Ejercicio N2
+//El gimnasio Bodytech, lo contrata para desarrollar una aplicación web que permita a sus usuarios calcular el índice de masa corporal,
+//basado en la formula 𝐈𝐌𝐂 =𝑷𝒆𝒔𝒐 / 𝑨𝒍𝒕𝒖𝒓𝒂 * 𝑨𝒍𝒕𝒖𝒓𝒂
+//La clasificación del IMC, es la siguiente:
+//• IMC <= 18,4 (Insuficiencia de peso)
+//• 18,5<=IMC<=24,9 (Peso normal)
+//• 25<=IMC<=29,9 (Sobrepeso)
+//• 30<=IMC<=34,9 (Obesidad 1)
+//• 35<=IMC<=39,9 (Obesidad 2)
+//• IMC>=40 (Obesidad 3)
+
+
+// round permite redondear la cifra en este caso a dos decimales
+//p es peso, a es altura
+echo "<br> ";
+ $p=50;
+ $a=1.81;
+echo("Para su peso de (".$p.") Kg y su altura de (".$a.") m");
+echo "<br> ";
+               
+if($p==0 || $a==0){
+echo "No ha ingresado un valor.";
+}
+else{
+ $imc= $p / ($a*$a);
+if($imc <= 18.4){
+echo "Su IMC es de: ".round($imc,2).". Insuficiencia de peso.";
+ }
+else if($imc <= 24.9){
+ echo "Su IMC es de: ".round($imc,2).". Peso normal.";
+}
+else if($imc <= 29.9){
+echo "Su IMC es de: ".round($imc,2).". Sobrepeso.";
+}
+else if($imc <= 34.9){
+echo "Su IMC es de: ".round($imc,2).". Obesidad 1.";
+}
+else if($imc <= 39.9){
+echo "Su IMC es de: ".round($imc,2).". Obesidad 2.";
+}
+else{
+echo "Su IMC es de: ".round($imc,2).". Obesidad 3.";
+}
+}
+
+
+//Ejercicio 3
+/**Hacer un programa en PHP para la tienda Spring Step que tiene una promoción de descuento para vender al por mayor, esta dependerá del
+número de zapatos que se compren. Si son 3 pares se les dará un 10% de descuento sobre el total de la compra; si el número de zapatos es
+mayor 3 pares pero menor o igual de 5 pares, se le otorga un 20% de descuento; y si son más 5 pares de zapatos se otorgará un 40% de
+descuento. Defina la cantidad de variables que necesite, el precio de cada pare de zapatos =$150.000 y establezca el valor total de una
+compra de 5 pares de zapatos.**/
+
+echo "<br> ";
+echo "<br> ";
+
+$can=5;
+$val=150000;
+
+if ($can==0 || $val==0){
+echo "No ha ingresado un valor.";
+}
+else{
+$d= $can * $val;
+if($can == 3){
+$d*=0.9;
+}
+else if($can > 5){
+$d*=0.6;
+}
+else if($can > 3){
+$d*=0.8;
+}
+echo "El precio para comprar ".$can." pares de zapatos por $".$val." cada uno, es de: $".round($d,2);
+}
+//Ejercicio 4
+/**Hacer un programa en PHP para ayudar a un trabajador de Postobón a saber cuál será su sueldo semanal, se sabe que si trabaja 40 horas o
+menos, se le pagará $20000 por hora, pero si trabaja más de 40 horas entonces las horas extras se le pagarán a $25000 por hora. Ejecute su
+código para calcular el salario con 36 horastrabajadas. */
+
+echo "<br> ";
+$horas=36;
+
+if ($horas==0){
+    echo "No ha ingresado un valor.";
+}
+else{
+    if($horas <= 40){
+        $total=20000*$horas;
+    }
+    else{
+        $total= 20000*40 + 25000*($horas-40);
+    }
+    echo "Por trabajar ".$horas." horas, se le pagará al trabajador $".round($total,2).".";
+}
+
+//Ejercicio 5
+/**  Después de realizar una consulta en la base de datos DE LA JUGOSA SAS se tienen almacenados los valores de dicha consulta en un 
+ * arreglo denominado salpicón
+ */
+
+echo "<br> ";
+echo "<br> ";
+$salpicon=array("dulce1"=>"banano","dulce2"=>"manzana","dulce"=>"durazno","acido1"=>"piña","acido2"=>"naranja","acido3"=>"lulo");
+print_r($salpicon);
+
+echo "<br> ";
+
+
+foreach($salpicon as $clave=>$valor){
+    echo($valor);
+    echo "<br> ";
+}
+
+
+
+?>
